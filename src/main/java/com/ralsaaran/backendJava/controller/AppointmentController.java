@@ -23,7 +23,8 @@ import java.util.List;
 public class AppointmentController {
     private final AppointmentService appointmentService;
 
-    @PostMapping("create")
+    //@PostMapping("create")
+    @RequestMapping(method = RequestMethod.POST, value = "create")
     @ResponseStatus(HttpStatus.OK)
     public void addAppointment(
             @RequestBody
@@ -32,12 +33,14 @@ public class AppointmentController {
         appointmentService.create(addAppointment);
     }
 
-    @GetMapping("home")
+    //@GetMapping("home")
+    @RequestMapping(method = RequestMethod.GET, value = "home")
     public List<SearchAppointmentRespons> todayAppointment(){
         return appointmentService.getTodayAppointment();
     }
 
-    @GetMapping("search")
+//    @GetMapping("search")
+    @RequestMapping(method = RequestMethod.GET, value = "search")
     public List<SearchAppointmentRespons> searchAppointment(
             @Valid
             SearchAppointment searchAppointment
@@ -45,7 +48,8 @@ public class AppointmentController {
         return appointmentService.getAllAvailableAppointments(searchAppointment);
     }
 
-    @GetMapping("history")
+//    @GetMapping("history")
+    @RequestMapping(method = RequestMethod.GET, value = "history")
     public List<PatientAppointmentsHistory> appointmentsHistories(
             @Valid
             Patient patient
@@ -53,7 +57,8 @@ public class AppointmentController {
         return appointmentService.getPatientAppointmentsHistory(patient);
     }
 
-    @PatchMapping("cancel")
+    //@PatchMapping("cancel")
+    @RequestMapping(method = RequestMethod.PATCH, value = "cancel")
     @ResponseStatus(HttpStatus.OK)
     public void cancelAppointment(
             @RequestBody
