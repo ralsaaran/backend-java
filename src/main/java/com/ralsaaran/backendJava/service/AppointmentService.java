@@ -13,6 +13,7 @@ import java.util.List;
 public interface AppointmentService {
     void create(AddAppointment addAppointment) throws ParseException;
 
+    List<SearchAppointmentRespons> getTodayAppointment();
     List<SearchAppointmentRespons> getAllAvailableAppointments(SearchAppointment searchAppointment);
 
     List<PatientAppointmentsHistory> getPatientAppointmentsHistory(Patient patient);

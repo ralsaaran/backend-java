@@ -32,6 +32,11 @@ public class AppointmentController {
         appointmentService.create(addAppointment);
     }
 
+    @GetMapping("home")
+    public List<SearchAppointmentRespons> todayAppointment(){
+        return appointmentService.getTodayAppointment();
+    }
+
     @GetMapping("search")
     public List<SearchAppointmentRespons> searchAppointment(
             @Valid

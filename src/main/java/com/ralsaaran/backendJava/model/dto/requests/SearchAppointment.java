@@ -7,6 +7,5 @@ import lombok.Setter;
 @Setter
 public class SearchAppointment {
     private String dateFrom;
-    private String dateTo;
     private String name;
 }

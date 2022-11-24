@@ -4,10 +4,10 @@ import com.ralsaaran.backendJava.model.dto.requests.AddAppointment;
 import com.ralsaaran.backendJava.model.dto.responses.PatientAppointmentsHistory;
 import com.ralsaaran.backendJava.model.dto.responses.SearchAppointmentRespons;
 import com.ralsaaran.backendJava.model.entities.Appointments;
+import com.ralsaaran.backendJava.util.DateUtils;
 
 import java.sql.Date;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +16,7 @@ public class AppointmentMapper {
         Appointments entity = new Appointments();
         entity.setIdNumber(addAppointment.getIdNumber());
         entity.setName(addAppointment.getName());
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        java.util.Date parsed = format.parse(addAppointment.getDate()+":00");
+        java.util.Date parsed = DateUtils.convertStringToDate(addAppointment.getDate(),"yyyy-MM-dd HH:mm" );
         java.sql.Date sql = new java.sql.Date(parsed.getTime());
         entity.setAppointmentDate(sql);
         Date currentSqlDate = new Date(System.currentTimeMillis());

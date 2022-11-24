@@ -15,6 +15,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.text.ParseException;
 import java.util.List;
 
@@ -31,6 +32,15 @@ public class AppointmentServiceImpl implements AppointmentService {
         Appointments appointment = AppointmentMapper.toAppointmentEntity(addAppointment);
         repository.save(appointment);
     }
+
+    @Override
+    public List<SearchAppointmentRespons> getTodayAppointment() {
+        SearchAppointment searchAppointment = new SearchAppointment();
+        Date currentSqlDate = new Date(System.currentTimeMillis());
+        searchAppointment.setDateFrom(currentSqlDate.toString());
+        return getAllAvailableAppointments(searchAppointment);
+    }
+
 
     @Override
     public List<SearchAppointmentRespons> getAllAvailableAppointments(
