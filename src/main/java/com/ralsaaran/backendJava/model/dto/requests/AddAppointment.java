@@ -3,7 +3,7 @@ package com.ralsaaran.backendJava.model.dto.requests;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
-import java.sql.Date;
+import javax.validation.constraints.Pattern;
 
 @Data
 public class AddAppointment {
@@ -12,5 +12,7 @@ public class AddAppointment {
     String idNumber;
     @NotNull
     String name;
-    Date date;
+    @NotNull
+    @Pattern(regexp = "yyyy-MM-dd HH:mm")
+    String date;
 }

@@ -4,7 +4,6 @@ import com.ralsaaran.backendJava.model.entities.Appointments;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-import java.sql.Date;
 import java.util.List;
 
 public interface AppointmentRepository extends

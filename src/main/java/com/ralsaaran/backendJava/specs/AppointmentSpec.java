@@ -4,8 +4,8 @@ package com.ralsaaran.backendJava.specs;
 import com.ralsaaran.backendJava.model.dto.requests.SearchAppointment;
 import com.ralsaaran.backendJava.model.entities.Appointments;
 import com.ralsaaran.backendJava.util.DateUtils;
-import liquibase.repackaged.org.apache.commons.lang3.StringUtils;
 import lombok.AllArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.CriteriaBuilder;

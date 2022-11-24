@@ -15,6 +15,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.util.List;
 
 
@@ -26,7 +27,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     private final AppointmentRepository repository;
 
     @Override
-    public void create(AddAppointment addAppointment) {
+    public void create(AddAppointment addAppointment) throws ParseException {
         Appointments appointment = AppointmentMapper.toAppointmentEntity(addAppointment);
         repository.save(appointment);
     }

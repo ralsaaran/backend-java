@@ -7,10 +7,11 @@ import com.ralsaaran.backendJava.model.dto.requests.SearchAppointment;
 import com.ralsaaran.backendJava.model.dto.responses.PatientAppointmentsHistory;
 import com.ralsaaran.backendJava.model.dto.responses.SearchAppointmentRespons;
 
+import java.text.ParseException;
 import java.util.List;
 
 public interface AppointmentService {
-    void create(AddAppointment addAppointment);
+    void create(AddAppointment addAppointment) throws ParseException;
 
     List<SearchAppointmentRespons> getAllAvailableAppointments(SearchAppointment searchAppointment);
 

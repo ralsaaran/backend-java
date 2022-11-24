@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://127.0.0.1:1433;databaseName=APPOINTMENT
+    username: sa
+    password: reallyStrongPwd123
+  jpa:
+   database: sql_server
+  show-sql: true
+  hibernate.ddl-auto: none
+  liquibase:
+   change-log: classpath:db/db.changelog-master.xml
+
+admin:
+  username: admin
+  password: login123

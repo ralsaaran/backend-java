@@ -1,6 +1,6 @@
 package com.ralsaaran.backendJava.model.entities;
 
-import lombok.*;
+import lombok.Data;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;

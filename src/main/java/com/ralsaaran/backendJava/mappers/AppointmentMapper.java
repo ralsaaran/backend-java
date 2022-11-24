@@ -6,15 +6,20 @@ import com.ralsaaran.backendJava.model.dto.responses.SearchAppointmentRespons;
 import com.ralsaaran.backendJava.model.entities.Appointments;
 
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AppointmentMapper {
-    public static Appointments toAppointmentEntity(AddAppointment addAppointment){
+    public static Appointments toAppointmentEntity(AddAppointment addAppointment) throws ParseException {
         Appointments entity = new Appointments();
         entity.setIdNumber(addAppointment.getIdNumber());
         entity.setName(addAppointment.getName());
-        entity.setAppointmentDate(addAppointment.getDate());
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        java.util.Date parsed = format.parse(addAppointment.getDate()+":00");
+        java.sql.Date sql = new java.sql.Date(parsed.getTime());
+        entity.setAppointmentDate(sql);
         Date currentSqlDate = new Date(System.currentTimeMillis());
         entity.setCreatedAt(currentSqlDate);
         entity.setCreatedBy("System");

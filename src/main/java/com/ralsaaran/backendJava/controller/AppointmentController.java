@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -27,7 +28,7 @@ public class AppointmentController {
     public void addAppointment(
             @RequestBody
             @Valid
-            AddAppointment addAppointment) {
+            AddAppointment addAppointment) throws ParseException {
         appointmentService.create(addAppointment);
     }
 
